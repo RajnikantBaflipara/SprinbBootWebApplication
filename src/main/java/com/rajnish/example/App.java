@@ -11,7 +11,7 @@ public class App
 {
 	@GetMapping("/greeting")
 	public String greetingMessage() {
-		return "Waoo! Congrats Rajnikant Baflipara your application deployed successfully in Pivotal Cloud Foundry. Now you can go to next step..!!";
+		return "Waoo! Congrats Rajnikant Baflipara your application deployed successfully in Pivotal Cloud Foundry.";
 	}
 	
     public static void main( String[] args )
