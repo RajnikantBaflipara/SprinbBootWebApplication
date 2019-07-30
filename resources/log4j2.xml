@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="debug">
-    <Properties>
-        <Property name="basePath">logs</Property>
-    </Properties>
- 
-    <Appenders>
-        <RollingFile name="fileLogger" fileName="${basePath}/app-info.log" filePattern="${basePath}/app-info-%d{yyyy-MM-dd}.log">
-            <PatternLayout>
-                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{2} - %msg%n</pattern>
-            </PatternLayout>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
-            </Policies>
-        </RollingFile>
-    </Appenders>
-    <Loggers>
-        <Logger name="com.rajnish.example" level="info" additivity="false">
-            <appender-ref ref="fileLogger" level="info" />
-        </Logger>
-        <Root level="info" additivity="false">
-            <appender-ref ref="fileLogger" />
-        </Root>
-    </Loggers>
+	<Properties>
+		<Property name="basePath">logs</Property>
+	</Properties>
+	<Console name="Console" target="SYSTEM_OUT" follow="true">
+		<PatternLayout pattern="${LOG_PATTERN}" />
+	</Console>
+	<!-- Appenders> <RollingFile name="fileLogger" fileName="${basePath}/app-info.log" 
+		filePattern="${basePath}/app-info-%d{yyyy-MM-dd}.log"> <PatternLayout> <pattern>[%-5level] 
+		%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{2} - %msg%n</pattern> </PatternLayout> 
+		<Policies> <TimeBasedTriggeringPolicy interval="1" modulate="true" /> </Policies> 
+		</RollingFile> </Appenders -->
+	<Loggers>
+		<Logger name="com.rajnish.example" level="info"
+			additivity="false">
+			<appender-ref ref="Console" level="info" />
+		</Logger>
+		<Root level="info" additivity="false">
+			<appender-ref ref="Console" />
+		</Root>
+	</Loggers>
 </Configuration>
